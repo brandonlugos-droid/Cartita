@@ -1,0 +1,607 @@
+﻿/* estilos.css */
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+    color: #5d4037;
+    line-height: 1.7;
+    padding: 10px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s ease;
+    overflow-x: hidden;
+}
+
+    body.tema-romantico-oscuro {
+        background: linear-gradient(135deg, #2c1a1a 0%, #4a2c2c 100%);
+        color: #f5d0d0;
+    }
+
+.contenedor {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    z-index: 1;
+}
+
+/* Marcos decorativos mejorados */
+.marco {
+    position: absolute;
+    background-size: contain;
+    background-repeat: repeat;
+    z-index: 1;
+    opacity: 0.9;
+    transition: opacity 0.5s;
+}
+
+    .marco.brillo {
+        opacity: 1;
+        filter: drop-shadow(0 0 3px rgba(255, 107, 139, 0.5));
+    }
+
+.marco-superior {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="50" viewBox="0 0 120 50"><path d="M0,25 Q30,0 60,25 T120,25" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M5,30 Q35,5 65,30 T125,30" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="30" cy="15" r="3" fill="%23ff6b8b"/><circle cx="90" cy="15" r="3" fill="%23ff6b8b"/><circle cx="15" cy="35" r="2" fill="%23ff9999"/><circle cx="105" cy="35" r="2" fill="%23ff9999"/></svg>');
+}
+
+.marco-inferior {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="50" viewBox="0 0 120 50"><path d="M0,25 Q30,50 60,25 T120,25" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M5,20 Q35,45 65,20 T125,20" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="30" cy="35" r="3" fill="%23ff6b8b"/><circle cx="90" cy="35" r="3" fill="%23ff6b8b"/><circle cx="15" cy="15" r="2" fill="%23ff9999"/><circle cx="105" cy="15" r="2" fill="%23ff9999"/></svg>');
+}
+
+.marco-izquierdo {
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="120" viewBox="0 0 50 120"><path d="M25,0 Q0,30 25,60 T25,120" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M30,5 Q5,35 30,65 T30,125" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="15" cy="30" r="3" fill="%23ff6b8b"/><circle cx="15" cy="90" r="3" fill="%23ff6b8b"/><circle cx="35" cy="15" r="2" fill="%23ff9999"/><circle cx="35" cy="105" r="2" fill="%23ff9999"/></svg>');
+}
+
+.marco-derecho {
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="120" viewBox="0 0 50 120"><path d="M25,0 Q50,30 25,60 T25,120" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M20,5 Q45,35 20,65 T20,125" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="35" cy="30" r="3" fill="%23ff6b8b"/><circle cx="35" cy="90" r="3" fill="%23ff6b8b"/><circle cx="15" cy="15" r="2" fill="%23ff9999"/><circle cx="15" cy="105" r="2" fill="%23ff9999"/></svg>');
+}
+
+/* Contenido de la carta */
+.contenido-carta {
+    position: relative;
+    background: linear-gradient(to bottom, #fffaf5 0%, #fff0f0 100%);
+    padding: 30px 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(255, 107, 139, 0.15), inset 0 0 0 1px rgba(255, 182, 193, 0.3), inset 0 0 30px rgba(255, 182, 193, 0.1);
+    z-index: 2;
+    margin: 50px 0;
+    transition: all 0.8s;
+    border: 1px solid #ffccd5;
+    overflow: hidden;
+}
+
+body.tema-romantico-oscuro .contenido-carta {
+    background: linear-gradient(to bottom, #3a2828 0%, #4a2c2c 100%);
+    border-color: #6d4444;
+    box-shadow: 0 10px 30px rgba(100, 30, 40, 0.3), inset 0 0 0 1px rgba(150, 70, 80, 0.4), inset 0 0 30px rgba(100, 30, 40, 0.2);
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ffccd5;
+    position: relative;
+}
+
+.sello-romantico {
+    font-size: 3.5rem;
+    color: #ff3366;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    animation: latido 2s infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.5));
+}
+
+.anillo-sello {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border: 3px dashed #ff9999;
+    border-radius: 50%;
+    animation: girar 20s linear infinite;
+}
+
+.titulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ff3366;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #ff6b8b, #ff3366);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.tema-romantico-oscuro .titulo {
+    background: linear-gradient(to right, #ff9999, #ff6b8b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fecha-romantica {
+    font-size: 1rem;
+    color: #b85c5c;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.separador-corazon {
+    color: #ff6b8b;
+    font-size: 1.2rem;
+    animation: latido 1.5s infinite;
+}
+
+.lugar {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.destinatario-romantico {
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    color: #b85c5c;
+    padding-left: 10px;
+    border-left: 3px solid #ff9999;
+}
+
+.nombre-destinatario {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #ff3366;
+    font-weight: 600;
+}
+
+.cuerpo-carta {
+    margin-bottom: 30px;
+}
+
+.parrafo {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 1.05rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+    line-height: 1.8;
+}
+
+    .parrafo.destacado {
+        font-size: 1.15rem;
+        color: #ff3366;
+        font-weight: 500;
+        text-align: center;
+        font-style: italic;
+        padding: 10px;
+        background-color: rgba(255, 182, 193, 0.1);
+        border-radius: 5px;
+    }
+
+.cita-romantica {
+    text-align: center;
+    font-style: italic;
+    padding: 15px;
+    margin: 25px 0;
+    background-color: rgba(255, 107, 139, 0.08);
+    border-left: 4px solid #ff6b8b;
+    border-right: 4px solid #ff6b8b;
+    position: relative;
+    font-size: 1.1rem;
+    color: #b85c5c;
+}
+
+.fa-quote-left, .fa-quote-right {
+    color: #ff6b8b;
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+.poema {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: rgba(255, 204, 213, 0.15);
+    border-radius: 8px;
+    text-align: center;
+    font-style: italic;
+    border: 1px dashed #ff9999;
+}
+
+.verso {
+    margin-bottom: 8px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #ff3366;
+    line-height: 1.5;
+}
+
+.despedida-romantica {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #ffccd5;
+}
+
+.firma-contenedor {
+    text-align: right;
+}
+
+.firma-romantica {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.firma {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff3366;
+    font-weight: 700;
+}
+
+.sello-firma {
+    font-size: 1.8rem;
+    color: #ff3366;
+    animation: latido 1.8s infinite;
+}
+
+.posdata {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: rgba(255, 182, 193, 0.1);
+    border-radius: 5px;
+    border-left: 3px solid #ff6b8b;
+}
+
+.pds {
+    font-style: italic;
+    color: #b85c5c;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+/* Elementos decorativos */
+.decoracion-esquina {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #ff9999;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.esquina-sup-izq {
+    top: 10px;
+    left: 10px;
+}
+
+.esquina-sup-der {
+    top: 10px;
+    right: 10px;
+}
+
+.esquina-inf-izq {
+    bottom: 10px;
+    left: 10px;
+}
+
+.esquina-inf-der {
+    bottom: 10px;
+    right: 10px;
+}
+
+.pequeno {
+    font-size: 0.8rem;
+    margin: 0 2px;
+}
+
+/* Corazones y rosas flotantes */
+.corazon, .rosa {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.6;
+    font-size: 1.5rem;
+    color: #ff6b8b;
+    animation: flotar 6s ease-in-out infinite;
+}
+
+.corazon {
+    color: #ff3366;
+}
+
+.flotante-1 {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.flotante-2 {
+    top: 60%;
+    right: 8%;
+    animation-delay: 1s;
+    font-size: 2rem;
+}
+
+.flotante-3 {
+    top: 80%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.flotante-4 {
+    top: 25%;
+    right: 5%;
+    animation-delay: 1.5s;
+    color: #ff9999;
+}
+
+.flotante-5 {
+    top: 70%;
+    left: 7%;
+    animation-delay: 0.5s;
+    color: #ff9999;
+}
+
+/* Pie de página */
+.pie-pagina {
+    text-align: center;
+    margin-top: 25px;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #b85c5c;
+}
+
+.acciones-romanticas {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.btn-romantico {
+    background: linear-gradient(to right, #ff6b8b, #ff3366);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
+}
+
+    .btn-romantico:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(255, 107, 139, 0.4);
+    }
+
+body.tema-romantico-oscuro .btn-romantico {
+    background: linear-gradient(to right, #ff9999, #ff6b8b);
+}
+
+.mensaje-final {
+    margin-top: 15px;
+    font-style: italic;
+    color: #ff6b8b;
+}
+
+.contador-corazones {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #ff3366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.latido {
+    color: #ff3366;
+    transition: transform 0.3s;
+}
+
+    .latido.latido-activo {
+        transform: scale(1.3);
+    }
+
+/* Animaciones */
+@keyframes latido {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes girar {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contenido-carta {
+    animation: aparecer 1.5s ease-out;
+}
+
+/* Corazones de lluvia */
+.corazon-lluvia {
+    position: fixed;
+    top: -50px;
+    z-index: 1000;
+    pointer-events: none;
+    animation: caer linear forwards;
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.corazon-explotar {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    animation: explotar 1s ease-out forwards;
+}
+
+@keyframes explotar {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* Efecto de papel con textura romántica */
+.contenido-carta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.1) 0%, transparent 20%), radial-gradient(circle at 90% 80%, rgba(255, 182, 193, 0.1) 0%, transparent 20%), linear-gradient(90deg, transparent 79px, rgba(255, 182, 193, 0.1) 79px, rgba(255, 182, 193, 0.1) 81px, transparent 81px), linear-gradient(rgba(255, 182, 193, 0.05) .1em, transparent .1em);
+    background-size: 100% 100%, 100% 100%, 100% 1.5em, 100% 1.5em;
+    opacity: 0.5;
+    pointer-events: none;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .contenedor {
+        padding: 10px;
+    }
+
+    .contenido-carta {
+        padding: 25px 20px;
+        margin: 45px 0;
+    }
+
+    .titulo {
+        font-size: 2.5rem;
+    }
+
+    .parrafo {
+        font-size: 1rem;
+    }
+
+    .marco-superior, .marco-inferior {
+        height: 40px;
+    }
+
+    .marco-izquierdo, .marco-derecho {
+        width: 40px;
+    }
+
+    .acciones-romanticas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-romantico {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+}
+
+/* Efecto de brillo en el texto */
+.destacado, .cita-romantica, .firma {
+    position: relative;
+}
+
+    .destacado::after, .cita-romantica::after, .firma::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    .destacado:hover::after, .cita-romantica:hover::after, .firma:hover::after {
+        opacity: 1;
+    }
