@@ -1,6 +1,5 @@
-﻿/* estilos.css */
-/* Estilos generales */
-* {
+
+html,body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -34,7 +33,6 @@ body {
     z-index: 1;
 }
 
-/* Marcos decorativos mejorados */
 .marco {
     position: absolute;
     background-size: contain;
@@ -54,7 +52,9 @@ body {
     left: 0;
     width: 100%;
     height: 50px;
+    z-index:100;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="50" viewBox="0 0 120 50"><path d="M0,25 Q30,0 60,25 T120,25" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M5,30 Q35,5 65,30 T125,30" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="30" cy="15" r="3" fill="%23ff6b8b"/><circle cx="90" cy="15" r="3" fill="%23ff6b8b"/><circle cx="15" cy="35" r="2" fill="%23ff9999"/><circle cx="105" cy="35" r="2" fill="%23ff9999"/></svg>');
+
 }
 
 .marco-inferior {
@@ -62,26 +62,29 @@ body {
     left: 0;
     width: 100%;
     height: 50px;
+    z-index: 100;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="50" viewBox="0 0 120 50"><path d="M0,25 Q30,50 60,25 T120,25" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M5,20 Q35,45 65,20 T125,20" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="30" cy="35" r="3" fill="%23ff6b8b"/><circle cx="90" cy="35" r="3" fill="%23ff6b8b"/><circle cx="15" cy="15" r="2" fill="%23ff9999"/><circle cx="105" cy="15" r="2" fill="%23ff9999"/></svg>');
 }
 
 .marco-izquierdo {
     top: 0;
-    left: 0;
+    left: -10px;
     width: 50px;
     height: 100%;
+    z-index: 100;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="120" viewBox="0 0 50 120"><path d="M25,0 Q0,30 25,60 T25,120" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M30,5 Q5,35 30,65 T30,125" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="15" cy="30" r="3" fill="%23ff6b8b"/><circle cx="15" cy="90" r="3" fill="%23ff6b8b"/><circle cx="35" cy="15" r="2" fill="%23ff9999"/><circle cx="35" cy="105" r="2" fill="%23ff9999"/></svg>');
 }
 
 .marco-derecho {
     top: 0;
-    right: 0;
+    right: -10px;
     width: 50px;
     height: 100%;
+    z-index: 100;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="120" viewBox="0 0 50 120"><path d="M25,0 Q50,30 25,60 T25,120" fill="none" stroke="%23ff6b8b" stroke-width="2.5"/><path d="M20,5 Q45,35 20,65 T20,125" fill="none" stroke="%23ff9999" stroke-width="1.8"/><circle cx="35" cy="30" r="3" fill="%23ff6b8b"/><circle cx="35" cy="90" r="3" fill="%23ff6b8b"/><circle cx="15" cy="15" r="2" fill="%23ff9999"/><circle cx="15" cy="105" r="2" fill="%23ff9999"/></svg>');
 }
 
-/* Contenido de la carta */
+
 .contenido-carta {
     position: relative;
     background: linear-gradient(to bottom, #fffaf5 0%, #fff0f0 100%);
@@ -132,7 +135,7 @@ body.tema-romantico-oscuro .contenido-carta {
 }
 
 .titulo {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Dancing Script',cursive;
     font-size: 3rem;
     color: #ff3366;
     margin-bottom: 15px;
@@ -329,7 +332,6 @@ body.tema-romantico-oscuro .titulo {
     margin: 0 2px;
 }
 
-/* Corazones y rosas flotantes */
 .corazon, .rosa {
     position: absolute;
     z-index: 1;
@@ -494,7 +496,6 @@ body.tema-romantico-oscuro .btn-romantico {
     animation: aparecer 1.5s ease-out;
 }
 
-/* Corazones de lluvia */
 .corazon-lluvia {
     position: fixed;
     top: -50px;
@@ -584,7 +585,6 @@ body.tema-romantico-oscuro .btn-romantico {
     }
 }
 
-/* Efecto de brillo en el texto */
 .destacado, .cita-romantica, .firma {
     position: relative;
 }
